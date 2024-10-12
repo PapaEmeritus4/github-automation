@@ -8,6 +8,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.time.Duration;
+
 public class DriverSingleton {
 
     private static WebDriver driver;
@@ -44,6 +46,7 @@ public class DriverSingleton {
                     driver = new InternetExplorerDriver();
                 }
             }
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.manage().window().maximize();
         }
         return driver;
