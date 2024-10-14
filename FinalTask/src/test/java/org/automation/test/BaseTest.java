@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 
 @Listeners({TestListener.class})
-public class CommonConditions {
+public class BaseTest {
 
     protected WebDriver driver;
 

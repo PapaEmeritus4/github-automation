@@ -46,7 +46,8 @@ public class DriverSingleton {
                     driver = new InternetExplorerDriver();
                 }
             }
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            //if we need implicitly waits
+            //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
             driver.manage().window().maximize();
         }
         return driver;
