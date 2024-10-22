@@ -9,6 +9,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
+import java.util.Objects;
 
 public class DriverSingleton {
 
@@ -19,7 +20,7 @@ public class DriverSingleton {
     }
 
     public static WebDriver getDriver() {
-        if (null == driver) {
+        if (Objects.isNull(driver)) {
             switch (System.getProperty("browser")) {
                 case "chrome": {
                     WebDriverManager.chromedriver().setup();
@@ -54,7 +55,9 @@ public class DriverSingleton {
     }
 
     public static void closeDriver() {
-        driver.quit();
-        driver.close();
+        if (driver != null) {
+            driver.close();
+            driver = null;
+        }
     }
 }
